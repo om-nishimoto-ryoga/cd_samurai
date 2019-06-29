@@ -1,0 +1,27 @@
+<h1> マイページ</h1>
+<div>
+ <label>性別 : <%= @user.gender_i18n %></label>
+</div>
+<div class="field">
+ <label>名前 : <%= @user.last_name %></label><br>
+ <label>メールアドレス : <%= @user.email %></label>
+
+ <label>名前 : <%= @user.last_name + @user.first_name %></label><br>
+ <label>メールアドレス : <%= @user.email %></label>
+</div>
+<div>
+	<% @addresses.each do |address|%>
+	<%= address.to_name %>
+	<%= address.to_name_kana %>
+	<%= address.postal_code %>
+	<%= address.address %>
+	<%= address.tel_number %>
+    <%= link_to "変更", edit_address_path(address) %>
+    <%= link_to "削除", address_path(address), method: :delete %>
+	<%end%>
+</div>
+<div>
+</div>
+<div>
+<%= link_to "配送先を追加する", new_address_path %>
+</div>
