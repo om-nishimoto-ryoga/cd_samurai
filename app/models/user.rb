@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :addresses
   has_many :carts
   has_many :orders
+
+  enum gender: {man:0, woman:1, custom:2}
 end

@@ -1,0 +1,21 @@
+
+<h1>配送先の登録</h1>
+<%= form_for @address do |f| %>
+    <%= f.label :tel_number, "電話番号"%>
+	<%= f.text_field :tel_number %>
+	<br>
+    <%= f.label :postal_code, "郵便番号"%>
+	<%= f.text_field :postal_code %>
+	<br>
+    <%= f.label :address, "住所"%>
+	<%= f.text_area :address %>
+	<br>
+    <%= f.label :to_name, "宛名"%>
+	<%= f.text_field :to_name %>
+	<br>
+    <%= f.label :to_name_kana, "宛名（カナ）"%>
+	<%= f.text_field :to_name_kana %>
+	<br>
+	<%= f.submit '配送先を登録する' %>
+<% end %>
+

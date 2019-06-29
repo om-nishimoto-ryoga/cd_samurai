@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   	get 'withdrawal', on: :member
   	get 'ordered', on: :collection
   end
-
+# 住所
+  resources :addresses
 # 商品
   resource :orders, only: [:new,:create] do
     resources :order_products, only: [:new,:show,:create]
