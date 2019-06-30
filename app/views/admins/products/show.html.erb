@@ -1,0 +1,37 @@
+<h1> 商品詳細画面（管理者側）</h1>
+
+<p>
+<%= attachment_image_tag @product, :product_image, :fill, 200, 200 %><br>
+<strong>CD/アルバム名</strong>
+<%= @product.cd_title %><br>
+
+<% @product.product_discs.each_with_index do |disc,i| %>
+  <strong>
+    ディスク<!-- ディスク番号 --><% i += 1 %><%= i %>
+  </strong>
+	<%= disc.disc_title %><br>
+	<% disc.product_disc_songs.each_with_index do |song,i| %>
+		<strong>
+		  曲名<!-- 曲番号 --><% i += 1 %><%= i %>
+		</strong>
+		<%= song.song_name %><br>
+	<% end %>
+
+<% end %>
+
+<strong>アーティスト名</strong>
+<%= @product.artist_name %><br>
+<strong>レーベル名</strong>
+<%= @product.label_name %><br>
+<strong>価格</strong>
+<%= @product.price %>えん<br>
+<strong>在庫数</strong>
+<%= @product.stock %>こあるよ<br>
+
+</p>
+<%= link_to "商品の編集", edit_admins_product_path(@product) %>
+
+<%= link_to "商品の削除", admins_product_path(@product),
+		method: :delete, "data-confirm" => "本当に削除しますか？" %>
+
+<%= link_to "商品一覧へ", admins_products_path %>
