@@ -11,8 +11,11 @@ Rails.application.routes.draw do
   resource :orders, only: [:new,:create] do
     resources :order_products, only: [:new,:show,:create]
   end
-  resources :products
-
+  resources :products do
+    resource :carts, only: [:create]
+  end
+  #cart情報
+ resources :carts, only: [:index,:update,:destroy]
 # 管理者側
   devise_for :admins, controllers: {
     :sessions => 'admins/sessions'
@@ -20,6 +23,7 @@ Rails.application.routes.draw do
   namespace :admins do
    get '/' => 'products#index'
    resources :products
+   resources :users
   end
 
 # TOP画面

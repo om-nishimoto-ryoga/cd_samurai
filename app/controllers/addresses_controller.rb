@@ -23,7 +23,7 @@ class AddressesController < ApplicationController
   def destroy
     @address = Address.find(params[:id])
     @address.destroy
-    redirect_to client_path(current_user.id)
+    redirect_to user_path(current_user.id)
   end
 
   private

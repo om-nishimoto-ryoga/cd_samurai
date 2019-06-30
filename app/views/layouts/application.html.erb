@@ -10,6 +10,42 @@
   </head>
 
   <body>
+  <nav class="navber navber-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="navbar-brand">
+      <%= link_to "CD侍 -cd samurai-",root_path %>
+    </p>
+  </div>
+      <div class="collapse navbar-collapse" id="navbarEexample7">
+       <ul class="nav navbar-nav navbar-right">
+      
+    <% if user_signed_in? %>
+
+        <li>
+    <%= link_to('ログアウト', destroy_user_session_path, :method => :delete) %>
+       </li>
+       <li>
+    <%= link_to "マイページ", user_path(current_user) %>
+      </li>
+
+   <% else %>
+
+  <li>
+    <%= link_to "ログイン/会員登録", new_user_session_path %>
+  </li>
+
+   <% end %>
+
+  </ul>
+ </div>
+</div>
+</nav>
+
+   <div class="container body">
+
     <%= yield %>
+
+  </div>
   </body>
 </html>

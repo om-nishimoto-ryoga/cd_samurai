@@ -1,8 +1,13 @@
-class UsersController < ApplicationController
-  before_action :authenticate_user!
+class Admins::UsersController < Admins::ApplicationController
+  before_action :authenticate_admin!
+
+  def index
+    @users = User.all
+  end
 
   def show
     @user = User.find(params[:id])
+    @addresses = Address.where(user_id: current_user.id)
   end
 
   def edit
@@ -14,7 +19,9 @@ class UsersController < ApplicationController
   
 
   def destroy
-  	
+   @user = User.find(params[:id])
+   @user.destroy
+   redirect_to admins_users_path
   end
 
   def withdrawal
