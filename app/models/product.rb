@@ -1,6 +1,4 @@
 class Product < ApplicationRecord
-  belongs_to :genre
-  belongs_to :admin
   attachment :product_image
   has_many :product_discs
   # 子としてネストする
