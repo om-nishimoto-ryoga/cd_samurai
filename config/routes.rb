@@ -31,4 +31,33 @@ Rails.application.routes.draw do
     root 'home#top'
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   end
+<<<<<<< HEAD
   
+=======
+# 住所
+  resources :addresses
+# 商品
+  resource :orders, only: [:new,:create] do
+    resources :order_products, only: [:new,:show,:create]
+  end
+  
+  resources :products do 
+    resource :carts, only: [:create]
+  end
+  resources :carts, only: [:index,:update,:destroy]
+
+# 管理者側
+  devise_for :admins, controllers: {
+    :sessions => 'admins/sessions'
+}
+  namespace :admins do
+   get '/' => 'products#index'
+   resources :products
+   resources :users
+  end
+
+# TOP画面
+  root 'home#top'
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+end
+>>>>>>> 539b406a38defd9fe7b6ecdd2ceb92cee3fb9f3c
