@@ -1118,3 +1118,113 @@ puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
 puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/admins/users" for 10.0.2.2 at 2019-07-13 06:22:19 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Admins::UsersController#index as HTML
+  [1m[36mAdmin Load (2.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering admins/users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admins/users/index.html.erb:9
+  Rendered admins/users/index.html.erb within layouts/application (1778.4ms)
+Completed 500 Internal Server Error in 2296ms (ActiveRecord: 27.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `client' for #<#<Class:0x00007f1de0573640>:0x00007f1de022fcb8>):
+    12: <%= user.last_name + user.first_name %>
+    13: <%= user.email %>
+    14: 
+    15: <%= link_to "詳細" , admins_user_path(client) %>
+    16: <%= link_to "削除" , admins_user_path(client), method: :delete %><br>
+    17: 
+    18: <% end %>
+  
+app/views/admins/users/index.html.erb:15:in `block in _app_views_admins_users_index_html_erb__4251598532275577690_69883145618000'
+app/views/admins/users/index.html.erb:9:in `_app_views_admins_users_index_html_erb__4251598532275577690_69883145618000'
+Started GET "/admins/users" for 10.0.2.2 at 2019-07-13 06:22:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::UsersController#index as HTML
+  [1m[36mAdmin Load (2.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering admins/users/index.html.erb within layouts/application
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admins/users/index.html.erb:9
+  Rendered admins/users/index.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 5131ms (Views: 4922.9ms | ActiveRecord: 8.1ms)
+
+
+Started DELETE "/admins/users/1" for 10.0.2.2 at 2019-07-13 06:23:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"yL2RE0DoqOMH8R0HnZoHSp1kdsXb9R05Bko6Unqr9TQb71JeDytSFz04+UjckaiSPNRJc1Y5nndQ59spEppZkg==", "id"=>"1"}
+  [1m[36mAdmin Load (2.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins/users_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/admins/users_controller.rb:23
+  [1m[36mUser Destroy (13.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/admins/users_controller.rb:23
+  [1m[35m (78.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/admins/users_controller.rb:23
+Redirected to http://localhost:3000/admins/users
+Completed 302 Found in 141ms (ActiveRecord: 97.2ms)
+
+
+Started GET "/admins/users" for 10.0.2.2 at 2019-07-13 06:23:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::UsersController#index as HTML
+  [1m[36mAdmin Load (2.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering admins/users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admins/users/index.html.erb:9
+  Rendered admins/users/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 315ms (Views: 275.0ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/admins/users/2" for 10.0.2.2 at 2019-07-13 06:23:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (4.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admins/users_controller.rb:9
+Completed 500 Internal Server Error in 168ms (ActiveRecord: 6.1ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/admins/users_controller.rb:10:in `show'
+Started GET "/admins/users" for 10.0.2.2 at 2019-07-13 06:23:07 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::UsersController#index as HTML
+  [1m[36mAdmin Load (3.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering admins/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admins/users/index.html.erb:9
+  Rendered admins/users/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 344ms (Views: 299.8ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/admins/users/2" for 10.0.2.2 at 2019-07-13 06:23:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (3.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admins/users_controller.rb:9
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 5.2ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/admins/users_controller.rb:10:in `show'

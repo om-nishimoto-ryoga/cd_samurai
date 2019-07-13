@@ -12,8 +12,8 @@
 <%= user.last_name + user.first_name %>
 <%= user.email %>
 
-<%= link_to "詳細" , admins_user_path(client) %>
-<%= link_to "削除" , admins_user_path(client), method: :delete %><br>
+<%= link_to "詳細" , admins_user_path(user) %>
+<%= link_to "削除" , admins_user_path(user), method: :delete %><br>
 
 <% end %>
 
