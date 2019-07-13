@@ -7,11 +7,7 @@ class Admins::UsersController < Admins::ApplicationController
 
   def show
     @user = User.find(params[:id])
-<<<<<<< HEAD
-    @addresses = Address.where(user_id: user.id)
-=======
-    @addresses = Address.where(user_id: current_user.id)
->>>>>>> 539b406a38defd9fe7b6ecdd2ceb92cee3fb9f3c
+    #IDの渡し方がわからない @addresses = Address.where(user_id: users.id)
   end
 
   def edit

@@ -1,12 +1,4 @@
-<% if user_signed_in? %>
-
-    <%= link_to('ログアウト', destroy_user_session_path, :method => :delete) %>
-    <%= link_to "マイページ", user_path(current_user) %>
-
-<% else %>
-    <%= link_to "ログイン/会員登録", new_user_session_path %>
-
-<% end %>
+<%= render 'shared/list' %>
 
 <h1> Home画面</h1>
 <!-- <div class="main-container"> -->
@@ -25,7 +17,3 @@
 </p>
 
 <!-- </div> -->
-
-
-<%= link_to "商品一覧へ", products_path %>
-

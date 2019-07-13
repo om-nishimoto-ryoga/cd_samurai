@@ -1,3 +1,5 @@
+<%= render 'shared/list' %>
+
 <h1> 商品一覧画面（ユーザ側）</h1>
 
 <% @products.each do |product| %>
@@ -7,7 +9,3 @@
 <%= link_to "商品の詳細" , product_path(product) %><br>
 
 <% end %>
-
-
-
-<%= link_to "Top" , root_path %>

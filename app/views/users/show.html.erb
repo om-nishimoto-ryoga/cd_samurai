@@ -1,3 +1,5 @@
+<%= render 'shared/list' %>
+
 <h1> マイページ</h1>
 <div>
  <label>性別 : <%= @user.gender_i18n %></label>
@@ -20,4 +22,3 @@
 <div>
 <%= link_to "配送先を追加する", new_address_path %>
 </div>
-<%= link_to "商品一覧へ", products_path %>

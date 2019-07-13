@@ -1,6 +1,6 @@
- <%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>
+<%= render 'admins/list' %>
 
-<h1> 商品一覧画面（管理者側）</h1>
+<h1> 商品一覧</h1>
 
 <table>
   <thead>
@@ -31,7 +31,5 @@
 	<% end %>
   </tboby>
 </table>
-
-<%= link_to "商品の追加" , new_admins_product_path %><br>
 
 

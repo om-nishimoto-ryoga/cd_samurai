@@ -1,10 +1,6 @@
-<div>
-<%= link_to "商品一覧へ", admins_products_path %><br>
-<%= link_to "商品の追加" , new_admins_product_path %><br>
-<%= link_to "ユーザー情報一覧" , admins_users_path %><br>
-</div>
+<%= render 'admins/list' %>
 
-<h1> 商品一覧画面（管理者側）</h1>
+<h1> ユーザー一覧</h1>
 
 <% @users.each do |user| %>
 

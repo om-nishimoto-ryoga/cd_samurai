@@ -75,4 +75,4 @@ gem 'rspec'
 gem 'jquery-rails'
 gem 'enum_help'
 gem 'bootstrap', '~> 4.1.1'
-
+gem 'bootstrap-sass', '~> 3.3.6'

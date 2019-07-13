@@ -1,3 +1,5 @@
+<%= render 'shared/list' %>
+
 <h1> 商品詳細画面（ユーザ側）</h1>
 
 <%= @product.cd_title %>
@@ -7,5 +9,3 @@
     <div>カートに入れる</div>
     <% end %>
 </div>
-
-<%= link_to "商品一覧へ", products_path %>
