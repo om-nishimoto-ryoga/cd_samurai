@@ -1,0 +1,15 @@
+<div>
+<%= link_to "商品一覧へ", admins_products_path %><br>
+<%= link_to "商品の追加" , new_admins_product_path %><br>
+<%= link_to "ユーザー情報一覧" , admins_users_path %><br>
+</div>
+
+<h1><%= @user.last_name %>のマイページ</h1>
+<div>
+ <label>性別 : <%= @user.gender_i18n %></label>
+</div>
+<div class="field">
+ <label>名前 : <%= @user.last_name %></label><br>
+ <label>メールアドレス : <%= @user.email %></label>
+</div>
+
