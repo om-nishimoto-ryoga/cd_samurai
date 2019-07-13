@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_product
 
+  before_action :set_search
+
+# ransack
+  def set_search
+    @search = Product.ransack(params[:q]) #ransackメソッド推奨
+    @search_products = @search.result
+  end
+
 # 　　商品詳細ページのの商品IDを持ってくるための定義
   def current_product
   	 session[:product_id]
