@@ -12,10 +12,10 @@
   </div>
   <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
-      <li class="active"><%= link_to('Logout', destroy_admin_session_path, :method => :delete) %></li>
-      <li><%= link_to "商品一覧へ", admins_products_path %></li>
-      <li><%= link_to "商品の追加" , new_admins_product_path %></li>
-      <li><%= link_to "ユーザー情報一覧" , admins_users_path %></li>
+    <li class="active">  <%= link_to('ログアウト', destroy_user_session_path, :method => :delete) %></li>
+    <li><%= link_to "Top", root_path %></li>    
+    <li><%= link_to "商品一覧へ", products_path %></li>
+    <li><%= link_to "マイページ", user_path(current_user) %></li>
     </ul>
   </div>
 </div>
@@ -47,10 +47,9 @@
   </div>
   <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
-      <li class="active"><%= link_to('Logout', destroy_admin_session_path, :method => :delete) %></li>
-      <li><%= link_to "商品一覧へ", admins_products_path %></li>
-      <li><%= link_to "商品の追加" , new_admins_product_path %></li>
-      <li><%= link_to "ユーザー情報一覧" , admins_users_path %></li>
+    <li class="active">  <%= link_to "ログイン/会員登録", new_user_session_path %></li>
+    <li><%= link_to "Top", root_path %></li>    
+    <li><%= link_to "商品一覧へ", products_path %></li>    
     </ul>
   </div>
 </div>
@@ -67,3 +66,10 @@
   </div>
 </div>
 <% end %>
+
+<dl class="searchbox">
+  <%= search_form_for @search, url: products_path do |f| %>
+    <dt><%= f.text_field :cd_title_cont ,placeholder: '検索するCDタイトルを入力...' %></dt>
+    <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+  <% end %>
+</dl>
