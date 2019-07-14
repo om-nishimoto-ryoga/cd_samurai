@@ -13,4 +13,14 @@
  *= require_tree .
  *= require_self
  */ 
+
  @import "bootstrap";
+
+.body{
+	margin-top: 80px;
+}
+.border{
+	border: solid 1px;
+	margin-bottom: 5px;
+}
+
