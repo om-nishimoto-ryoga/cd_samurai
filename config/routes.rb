@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 # 住所
   resources :addresses
 # 商品
-  resource :orders, only: [:new,:create] do
+  resources :orders, only: [:new,:create] do
     resources :order_products, only: [:new,:show,:create]
   end
   #cart情報  

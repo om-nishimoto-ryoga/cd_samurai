@@ -1,6 +1,6 @@
 class OrderProductsController < ApplicationController
   def new
-  	@order = Order.where(order: :order)
+  	@order = Order.where(order_id: :order)
   	@order_product = OrderProduct.new
   end
 
