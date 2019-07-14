@@ -1,0 +1,15 @@
+<h1>購入確認画面</h1>
+
+<%= form_for @order do |f| %>
+
+<h3> 購入金額・送料</h3>
+
+<h3> 配送先指定</h3>
+
+<h3> お支払い方法選択</h3>
+<%= f.select :payment_method, Order.payment_methods_i18n.keys.map {|k| [Order.payment_methods_i18n[k] , k]} %><br>
+
+<%= f.submit %>
+
+<% end %>
+

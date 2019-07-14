@@ -10657,3 +10657,288 @@ Processing by Admins::UsersController#show as HTML
 Completed 200 OK in 2646ms (Views: 2491.9ms | ActiveRecord: 14.2ms)
 
 
+Started GET "/users/2" for 10.0.2.2 at 2019-07-14 11:35:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (34.1ms)
+Completed 500 Internal Server Error in 432ms (ActiveRecord: 28.7ms)
+
+
+  
+SyntaxError (/vagrant/cd_samurai/app/models/address.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...gs_to :user, :dependent destroy:
+...                        ^~~~~~~):
+  
+app/models/address.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb___3440504337060262122_47286945965320'
+Started GET "/users/2" for 10.0.2.2 at 2019-07-14 11:36:42 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAddress Load (5.4ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:15
+  Rendered users/show.html.erb within layouts/application (324.2ms)
+  Rendered shared/_list.html.erb (17.1ms)
+  Rendered shared/_side.html.erb (11.6ms)
+Completed 200 OK in 28120ms (Views: 27941.1ms | ActiveRecord: 43.0ms)
+
+
+Started GET "/orders/new" for 10.0.2.2 at 2019-07-14 11:37:39 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/new.html.erb within layouts/application (1352.9ms)
+  [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_list.html.erb:10
+  Rendered shared/_list.html.erb (20.4ms)
+  Rendered shared/_side.html.erb (2.9ms)
+Completed 200 OK in 3413ms (Views: 3240.5ms | ActiveRecord: 26.2ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2019-07-14 11:37:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pp38v0bid3ygoAK3GMQUEWTCH4nTqTLB8dO0Zb8HsPT7kB58qJNFrkLLDGQkb3S0c9lKEoKE6L+87cMRV0uh5Q==", "order"=>{"payment_method"=>"card"}, "commit"=>"Create Order"}
+  [1m[35m (0.9ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+Redirected to http://localhost:3000/orders/order_products/new
+Completed 302 Found in 31ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/orders/order_products/new" for 10.0.2.2 at 2019-07-14 11:37:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrderProductsController#new as HTML
+  Rendering order_products/new.html.erb within layouts/application
+  [1m[36mProduct Load (5.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (10.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."order" = ? LIMIT ?[0m  [["order", "order"], ["LIMIT", 11]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendered order_products/new.html.erb within layouts/application (209.0ms)
+Completed 500 Internal Server Error in 690ms (ActiveRecord: 55.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `order_products_path' for #<#<Class:0x00007f1b157062f0>:0x00007f1b15704310>):
+    1: <h1> 購入確認画面</h1>
+    2: 
+    3: <%= form_for @order_product do |f| %>
+    4: 
+    5: <h3> 購入金額・送料</h3>
+    6: 
+  
+app/views/order_products/new.html.erb:3:in `_app_views_order_products_new_html_erb___4429585085438105078_69877150266900'
+Started POST "/orders" for 10.0.2.2 at 2019-07-14 11:40:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pp38v0bid3ygoAK3GMQUEWTCH4nTqTLB8dO0Zb8HsPT7kB58qJNFrkLLDGQkb3S0c9lKEoKE6L+87cMRV0uh5Q==", "order"=>{"payment_method"=>"card"}, "commit"=>"Create Order"}
+  [1m[35m (1.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+Redirected to http://localhost:3000/orders/order_products/new
+Completed 302 Found in 20ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/orders/order_products/new" for 10.0.2.2 at 2019-07-14 11:40:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrderProductsController#new as HTML
+  Rendering order_products/new.html.erb within layouts/application
+  [1m[36mProduct Load (5.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (4.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."order" = ? LIMIT ?[0m  [["order", "order"], ["LIMIT", 11]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendered order_products/new.html.erb within layouts/application (139.5ms)
+Completed 500 Internal Server Error in 538ms (ActiveRecord: 9.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `order_products_path' for #<#<Class:0x00007f1b157062f0>:0x00007f1b169f82f0>):
+    1: <h1> 購入確認画面</h1>
+    2: 
+    3: <%= form_for @order_product do |f| %>
+    4: 
+    5: <h3> 購入金額・送料</h3>
+    6: 
+  
+app/views/order_products/new.html.erb:3:in `_app_views_order_products_new_html_erb___4429585085438105078_69877160200180'
+Started POST "/orders" for 10.0.2.2 at 2019-07-14 11:48:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pp38v0bid3ygoAK3GMQUEWTCH4nTqTLB8dO0Zb8HsPT7kB58qJNFrkLLDGQkb3S0c9lKEoKE6L+87cMRV0uh5Q==", "order"=>{"payment_method"=>"card"}, "commit"=>"Create Order"}
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+Redirected to http://localhost:3000/orders/order_products/new
+Completed 302 Found in 142ms (ActiveRecord: 27.5ms)
+
+
+Started GET "/orders/order_products/new" for 10.0.2.2 at 2019-07-14 11:48:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrderProductsController#new as HTML
+  Rendering order_products/new.html.erb within layouts/application
+  [1m[36mProduct Load (4.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mOrder Load (5.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."order" = ? LIMIT ?[0m  [["order", "order"], ["LIMIT", 11]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendered order_products/new.html.erb within layouts/application (188.3ms)
+Completed 500 Internal Server Error in 622ms (ActiveRecord: 51.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `order_products_path' for #<#<Class:0x00007f1b04cad0c0>:0x00007f1b04cb3588>):
+    1: <h1> 購入確認画面</h1>
+    2: 
+    3: <%= form_for @order_product do |f| %>
+    4: 
+    5: <h3> 購入金額・送料</h3>
+    6: 
+  
+app/views/order_products/new.html.erb:3:in `_app_views_order_products_new_html_erb___4429585085438105078_69877010623580'
+Started GET "/orders/order_products/new" for 10.0.2.2 at 2019-07-14 12:07:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (9.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/orders/order_products/new"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/orders" for 10.0.2.2 at 2019-07-14 12:07:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pp38v0bid3ygoAK3GMQUEWTCH4nTqTLB8dO0Zb8HsPT7kB58qJNFrkLLDGQkb3S0c9lKEoKE6L+87cMRV0uh5Q==", "order"=>{"payment_method"=>"card"}, "commit"=>"Create Order"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+Completed 500 Internal Server Error in 328ms (ActiveRecord: 25.1ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"new", :controller=>"order_products", :order_id=>nil}, missing required keys: [:order_id]):
+  
+app/controllers/orders_controller.rb:9:in `create'
+Started POST "/orders" for 10.0.2.2 at 2019-07-14 12:09:07 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pp38v0bid3ygoAK3GMQUEWTCH4nTqTLB8dO0Zb8HsPT7kB58qJNFrkLLDGQkb3S0c9lKEoKE6L+87cMRV0uh5Q==", "order"=>{"payment_method"=>"card"}, "commit"=>"Create Order"}
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"new", :controller=>"order_products", :order_id=>nil}, missing required keys: [:order_id]):
+  
+app/controllers/orders_controller.rb:9:in `create'
+Started GET "/orders/new" for 10.0.2.2 at 2019-07-14 12:12:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/new.html.erb within layouts/application (162.5ms)
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_list.html.erb:10
+  Rendered shared/_list.html.erb (196.0ms)
+  Rendered shared/_side.html.erb (2.8ms)
+Completed 200 OK in 6767ms (Views: 6555.9ms | ActiveRecord: 50.9ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2019-07-14 12:12:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PoQzxE9Yl/YlJooL3XKpWKCGl9dswGZbQUEh7ARoMjFjidEHoSmlJMdNhNjh2cn9t53CTD3tvCUMf1aY7CQjIA==", "order"=>{"payment_method"=>"pay"}, "commit"=>"Create Order"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"new", :controller=>"order_products", :order_id=>nil}, missing required keys: [:order_id]):
+  
+app/controllers/orders_controller.rb:9:in `create'
+Started POST "/orders" for 10.0.2.2 at 2019-07-14 12:13:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PoQzxE9Yl/YlJooL3XKpWKCGl9dswGZbQUEh7ARoMjFjidEHoSmlJMdNhNjh2cn9t53CTD3tvCUMf1aY7CQjIA==", "order"=>{"payment_method"=>"pay"}, "commit"=>"Create Order"}
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/orders_controller.rb:8
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"new", :controller=>"order_products", :order_id=>nil}, missing required keys: [:order_id]):
+  
+app/controllers/orders_controller.rb:9:in `create'
+Started GET "/orders/new" for 10.0.2.2 at 2019-07-14 12:14:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrdersController#new as HTML
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/new.html.erb within layouts/application (13.9ms)
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_list.html.erb:10
+  Rendered shared/_list.html.erb (18.8ms)
+  Rendered shared/_side.html.erb (2.2ms)
+Completed 200 OK in 2039ms (Views: 1907.5ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/orders" for 10.0.2.2 at 2019-07-14 12:14:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Arg5+koCQIYDDYT3g6pEDhY2hfjIoTUwr+WKAfodKjJftds5pHNyVOFmiiS/ASSrAS3QY5mM707i2/11ElE7Iw==", "commit"=>"Create Order"}
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: order):
+  
+app/controllers/orders_controller.rb:15:in `order_params'
+app/controllers/orders_controller.rb:7:in `create'
