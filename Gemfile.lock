@@ -162,7 +162,10 @@ GEM
 <<<<<<< HEAD
 =======
     popper_js (1.14.5)
+<<<<<<< HEAD
 >>>>>>> 43fbcdf020235d04c3e2f2f14976a559d16bf27a
+=======
+>>>>>>> f2e5c3c2305f30712949ea46acf453c08bd33617
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)

@@ -11,11 +11,20 @@ Rails.application.routes.draw do
   resource :orders, only: [:new,:create] do
     resources :order_products, only: [:new,:show,:create]
   end
+<<<<<<< HEAD
   resources :products do
     resource :carts, only: [:create]
   end
   #cart情報
  resources :carts, only: [:index,:update,:destroy]
+=======
+  
+  resources :products do 
+    resource :carts, only: [:create]
+  end
+  resources :carts, only: [:index,:update,:destroy]
+
+>>>>>>> f2e5c3c2305f30712949ea46acf453c08bd33617
 # 管理者側
   devise_for :admins, controllers: {
     :sessions => 'admins/sessions'
