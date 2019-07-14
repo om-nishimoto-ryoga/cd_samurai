@@ -1,12 +1,28 @@
-
-
 <h1> 商品一覧</h1>
 
-<% @search_products.each do |product| %>
+<table>
+  <thead>
+  	<tr>
+  	  <th>CDタイトル</th>
+  	  <th colspan="3"></th>
+  	</tr>
+  </thead>
 
-<%= product.cd_title %>
-
-<%= link_to "商品の詳細" , product_path(product) %><br>
-
-<% end %>
-
+  <tboby>
+	<% @products.each do |product| %>
+	  <tr>
+	  	<td>
+	  	<%= link_to product_path(product) do %>
+	  		<%= attachment_image_tag product, :product_image, :fill, 100, 100 %><br>
+	  		<%= product.cd_title %>
+	  	 <%end%>
+	  	</td>
+	  </tr>
+	  <tr>
+	  	<td>
+	  	<%= product.price%>円
+	  </td>
+	  </tr>
+	<% end %>
+  </tboby>
+</table>
