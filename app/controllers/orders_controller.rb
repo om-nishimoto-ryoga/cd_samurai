@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   def create
   @order = Order.new(order_params)
   @order.save
-  redirect_to new_order_product_path
+  redirect_to new_order_order_product_path(@order)
   end
 
 private
