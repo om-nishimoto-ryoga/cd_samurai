@@ -10602,3 +10602,58 @@ Completed 500 Internal Server Error in 102ms (ActiveRecord: 70.0ms)
 ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed: DELETE FROM "users" WHERE "users"."id" = ?):
   
 app/controllers/admins/users_controller.rb:23:in `destroy'
+Started DELETE "/admins/users/3" for 10.0.2.2 at 2019-07-14 11:24:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Admins::UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"V0UcsdaaF3c+25xNrdTT7K6mXq4YI5Ob/oK4bZjLtucKSP5yOOslpdywkp6Rf7NJub0LNUkOSeWzvM8ZcIen9g==", "id"=>"3"}
+  [1m[36mAdmin Load (6.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/admins/users_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/admins/users_controller.rb:23
+  [1m[36mUser Destroy (65.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/admins/users_controller.rb:23
+  [1m[35m (16.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/admins/users_controller.rb:23
+Redirected to http://localhost:3000/admins/users
+Completed 302 Found in 350ms (ActiveRecord: 141.6ms)
+
+
+Started GET "/admins/users" for 10.0.2.2 at 2019-07-14 11:24:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::UsersController#index as HTML
+  [1m[36mAdmin Load (9.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering admins/users/index.html.erb within layouts/application
+  Rendered admins/_list.html.erb (2.9ms)
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admins/users/index.html.erb:5
+  Rendered admins/users/index.html.erb within layouts/application (85.7ms)
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_list.html.erb:10
+  Rendered shared/_list.html.erb (43.6ms)
+  Rendered shared/_side.html.erb (4.0ms)
+Completed 200 OK in 6894ms (Views: 6746.0ms | ActiveRecord: 36.8ms)
+
+
+Started GET "/admins/users/2" for 10.0.2.2 at 2019-07-14 11:25:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (5.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admins/users_controller.rb:9
+  Rendering admins/users/show.html.erb within layouts/application
+  Rendered admins/_list.html.erb (3.5ms)
+  Rendered admins/users/show.html.erb within layouts/application (126.3ms)
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_list.html.erb:10
+  Rendered shared/_list.html.erb (62.4ms)
+  Rendered shared/_side.html.erb (3.9ms)
+Completed 200 OK in 2646ms (Views: 2491.9ms | ActiveRecord: 14.2ms)
+
+
