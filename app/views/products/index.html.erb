@@ -1,0 +1,10 @@
+
+<h1> 商品一覧</h1>
+
+<% @search_products.each do |product| %>
+
+<%= product.cd_title %>
+
+<%= link_to "商品の詳細" , product_path(product) %><br>
+
+<% end %>

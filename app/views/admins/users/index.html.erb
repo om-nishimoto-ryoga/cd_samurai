@@ -1,0 +1,16 @@
+<%= render 'admins/list' %>
+
+<h1> ユーザー一覧</h1>
+
+<% @users.each do |user| %>
+
+<%= user.id %>
+<%= user.last_name + user.first_name %>
+<%= user.email %>
+
+<%= link_to "詳細" , admins_user_path(user) %>
+<%= link_to "削除" , admins_user_path(user), method: :delete %><br>
+
+<% end %>
+
+ <%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>

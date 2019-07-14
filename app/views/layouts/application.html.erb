@@ -2,50 +2,29 @@
 <html>
   <head>
     <title>CdSamurai</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <%= render 'shared/list' %>
 
-  <body>
-  <nav class="navber navber-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <p class="navbar-brand">
-      <%= link_to "CD侍 -cd samurai-",root_path %>
-    </p>
-  </div>
-      <div class="collapse navbar-collapse" id="navbarEexample7">
-       <ul class="nav navbar-nav navbar-right">
-      
-    <% if user_signed_in? %>
-
-        <li>
-    <%= link_to('ログアウト', destroy_user_session_path, :method => :delete) %>
-       </li>
-       <li>
-    <%= link_to "マイページ", user_path(current_user) %>
-      </li>
-
-   <% else %>
-
-  <li>
-    <%= link_to "ログイン/会員登録", new_user_session_path %>
-  </li>
-
-   <% end %>
-
-  </ul>
- </div>
-</div>
-</nav>
-
-   <div class="container body">
+<!-- <div class="main-container"> -->
+<div class="container-fluid body">
+<div class="row">
+<%= render 'shared/side' %>
+<div class="col-sm-9">
 
     <%= yield %>
-
-  </div>
-  </body>
+</div>
+</div>
+</div>
+</body>
 </html>

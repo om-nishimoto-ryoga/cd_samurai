@@ -1,4 +1,6 @@
-<h1> 商品詳細画面（管理者側）</h1>
+<%= render 'admins/list' %>
+
+<h1> 商品詳細</h1>
 
 <p>
 <%= attachment_image_tag @product, :product_image, :fill, 200, 200 %><br>
@@ -24,14 +26,12 @@
 <strong>レーベル名</strong>
 <%= @product.label_name %><br>
 <strong>価格</strong>
-<%= @product.price %>えん<br>
+<%= @product.price %>円<br>
 <strong>在庫数</strong>
-<%= @product.stock %>こあるよ<br>
+<%= @product.stock %>個あるよ<br>
 
 </p>
 <%= link_to "商品の編集", edit_admins_product_path(@product) %>
 
 <%= link_to "商品の削除", admins_product_path(@product),
 		method: :delete, "data-confirm" => "本当に削除しますか？" %>
-
-<%= link_to "商品一覧へ", admins_products_path %>

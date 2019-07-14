@@ -1,0 +1,42 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">CD_samurai</a>
+  </div>
+    <ul class="nav navbar-nav navbar-right">
+
+      <% if user_signed_in? %>
+
+    <li class="active">  <%= link_to('ログアウト', destroy_user_session_path, :method => :delete) %></li>
+    <li><%= link_to "Top", root_path %></li>
+    <li><%= link_to "商品一覧へ", products_path %></li>
+    <li><%= link_to "マイページ", user_path(current_user) %></li>
+    </ul>
+    <dl class="searchbox">
+  <%= search_form_for @search, url: products_path do |f| %>
+    <dt><%= f.text_field :cd_title_cont ,placeholder: '検索するCDタイトルを入力...' %></dt>
+    <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+  <% end %>
+     </dl>
+</div>
+</nav>
+
+    
+<% else %>
+　　　
+    <li class="active">  <%= link_to "ログイン/会員登録", new_user_session_path %></li>
+    <li><%= link_to "Top", root_path %></li>    
+    <li><%= link_to "商品一覧へ", products_path %></li>
+    </ul>
+    <div class="navbar-form">
+  <%= search_form_for @search, url: products_path do |f| %>
+    <div><%= f.text_field :cd_title_cont ,placeholder: '検索するCDタイトルを入力...' %></div>
+    <%= f.submit ("検索") , class: 'search-btn'%>
+  <% end %>
+  </div>
+</nav>
+
+<%end%>
+
+

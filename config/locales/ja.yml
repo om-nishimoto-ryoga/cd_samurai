@@ -1,6 +1,6 @@
 ja:
  enums:
-  client:
+  user:
    gender:
     man: 男性
     woman: 女性
