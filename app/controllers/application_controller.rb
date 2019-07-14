@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_search
 
+
 # ransack
   def set_search
     @search = Product.ransack(params[:q]) #ransackメソッド推奨
