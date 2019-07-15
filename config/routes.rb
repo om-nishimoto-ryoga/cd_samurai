@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :products do 
     resource :carts, only: [:create]
   end
+  match 'carts/all' => 'carts#update_all', :as => :update_all, :via => :put
   resources :carts, only: [:index,:update,:destroy]
 
 # 管理者側

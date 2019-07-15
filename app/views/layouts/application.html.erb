@@ -14,17 +14,31 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <%= render 'shared/list' %>
-
-<!-- <div class="main-container"> -->
-<div class="container-fluid body">
-<div class="row">
-<%= render 'shared/side' %>
-<div class="col-sm-9">
+  <% if admin_signed_in? %>
+<div class="container-fluid">
+  <div class="row">
+  <%= render 'admins/side' %>
+    <div class="col-sm-9">
 
     <%= yield %>
+
+    </div>
+  </div>
 </div>
+
+
+  <%else%>
+  <%= render 'shared/list' %>
+<!-- <div class="main-container"> -->
+<div class="container-fluid body">
+  <div class="row">
+  <%= render 'shared/side' %>
+    <div class="col-sm-9">
+
+    <%= yield %>
+    </div>
+  </div>
 </div>
-</div>
+<%end%>
 </body>
 </html>
