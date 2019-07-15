@@ -6,13 +6,9 @@
     <a class="navbar-brand" href="#">CD_samurai</a>
   </div>
     <ul class="nav navbar-nav navbar-right">
-
       <% if user_signed_in? %>
-
-    <li class="active">  <%= link_to('ログアウト', destroy_user_session_path, :method => :delete) %></li>
-    <li><%= link_to "Top", root_path %></li>
-    <li><%= link_to "商品一覧へ", products_path %></li>
-    <li><%= link_to "マイページ", user_path(current_user) %></li>
+        <li><%= link_to("", carts_path, class: "glyphicon glyphicon-shopping-cart itemsize") %></li>
+        <li><%= link_to('', destroy_user_session_path, class: "glyphicon glyphicon-log-in itemsize", :method => :delete) %></li>
     </ul>
     <dl class="searchbox">
   <%= search_form_for @search, url: products_path do |f| %>
@@ -27,8 +23,6 @@
 <% else %>
 　　　
     <li class="active">  <%= link_to "ログイン/会員登録", new_user_session_path %></li>
-    <li><%= link_to "Top", root_path %></li>    
-    <li><%= link_to "商品一覧へ", products_path %></li>
     </ul>
     <div class="navbar-form">
   <%= search_form_for @search, url: products_path do |f| %>
