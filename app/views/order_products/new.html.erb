@@ -1,13 +1,13 @@
 <h1> 購入確認画面</h1>
 
-<%= form_for @order_product do |f| %>
+<%= form_for [@order,@order_product] do |f| %>
 
 <h3> 購入金額・送料</h3>
 
 <h3> 配送先確認</h3>
+<%= @order.to_address %>
 
 <h3> お支払い方法確認</h3>
-
 <%= @order.payment_method_i18n %><br>
 
 <%= f.submit %>
