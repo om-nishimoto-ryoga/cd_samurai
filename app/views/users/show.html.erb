@@ -6,8 +6,14 @@
  <label>性別 : <%= @user.gender_i18n %></label>
 </div>
 <div class="field">
- <label>名前 : <%= @user.last_name + @user.first_name %></label><br>
-</div>
+ <label>
+ 名前 : <%= @user.last_name + @user.first_name %>
+ (<%= @user.last_name_kana + @user.first_name_kana %>)
+ </label><br>
+ <label>メールアドレス : <%= @user.email %></label><br>
+ <label>生年月日 : <%= @user.birthday %></label>
+ </div>
+ <%= link_to "編集" , edit_user_path(@user) %>
 </div>
 
   <div class="col-sm-5">

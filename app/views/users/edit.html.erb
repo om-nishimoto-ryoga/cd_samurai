@@ -1,0 +1,37 @@
+<h2>ユーザー情報編集</h2>
+<%= form_for(@user) do |f| %>
+<div class="field">
+<%= f.label "名前" %>
+<label>姓
+<%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %></label>名
+<label><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %></label>
+</div>
+
+<div class="field">
+<%= f.label "カナ" %>
+<label>セイ
+<%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %></label>
+<label>メイ
+<%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %></label>
+</div>
+
+<div class="field">
+<%= f.label "メールアドレス" %><br />
+<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+</div>
+
+　<div class="field">
+<%= f.label "性別" %><br />
+  <label><%= f.radio_button :gender, :man %> 男 </label>
+  <label><%= f.radio_button :gender, :woman %> 女</label>
+  <label><%= f.radio_button :gender, :custom %> その他</label>
+</div>
+
+<div class="field">
+<%= f.label "生年月日" %>
+<%= raw sprintf(
+  f.date_select(
+    :birthday, use_month_numbers: true, start_year: 1930,end_year: (Time.now.year - 18), default: Date.new(1990, 1, 1),date_separator: '%s'),'年 ', '月 ') + '日' %>
+</div>
+<%= f.submit '更新' %>
+<% end %>
