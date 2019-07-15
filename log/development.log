@@ -25516,3 +25516,88 @@ puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
 puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/products" for 10.0.2.2 at 2019-07-15 08:36:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (3.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:12
+  Rendered products/index.html.erb within layouts/application (87.1ms)
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_list.html.erb:9
+  Rendered shared/_list.html.erb (88.3ms)
+  Rendered shared/_side.html.erb (2.4ms)
+Completed 200 OK in 7469ms (Views: 7295.3ms | ActiveRecord: 48.8ms)
+
+
+Started GET "/products/5" for 10.0.2.2 at 2019-07-15 08:36:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (3.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:7
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mProductDisc Load (5.3ms)[0m  [1m[34mSELECT "product_discs".* FROM "product_discs" WHERE "product_discs"."product_id" = ?[0m  [["product_id", 5]]
+  ↳ app/views/products/show.html.erb:9
+  [1m[36mProductDiscSong Load (4.7ms)[0m  [1m[34mSELECT "product_disc_songs".* FROM "product_disc_songs" WHERE "product_disc_songs"."product_disc_id" = ?[0m  [["product_disc_id", 5]]
+  ↳ app/views/products/show.html.erb:14
+  Rendered products/show.html.erb within layouts/application (234.8ms)
+  [1m[36mUser Load (72.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_list.html.erb:9
+  Rendered shared/_list.html.erb (86.4ms)
+  Rendered shared/_side.html.erb (2.1ms)
+Completed 200 OK in 2873ms (Views: 2622.4ms | ActiveRecord: 126.2ms)
+
+
+Started GET "/attachments/f86b7eb592ef631ccf273dd6c4d285e04e3ce037/store/fill/200/200/969b399fb268d8c3245e6083a9380f47191b7dc47fae447ff198aa44c760/product_image" for 10.0.2.2 at 2019-07-15 08:36:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Refile::App: [2019-07-15 08:36:38 +0000] GET "/f86b7eb592ef631ccf273dd6c4d285e04e3ce037/store/fill/200/200/969b399fb268d8c3245e6083a9380f47191b7dc47fae447ff198aa44c760/product_image" 200 761.2ms
+
+Started GET "/users/2" for 10.0.2.2 at 2019-07-15 08:42:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (8.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAddress Load (7.6ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses" WHERE "addresses"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:15
+  Rendered users/show.html.erb within layouts/application (123.8ms)
+  Rendered shared/_list.html.erb (3.6ms)
+  Rendered shared/_side.html.erb (2.4ms)
+Completed 200 OK in 2516ms (Views: 2333.8ms | ActiveRecord: 48.5ms)
+
+
+Started GET "/addresses/1/edit" for 10.0.2.2 at 2019-07-15 08:43:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AddressesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAddress Load (9.0ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/addresses_controller.rb:7
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/edit.html.erb within layouts/application (20.4ms)
+  [1m[36mUser Load (10.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_list.html.erb:9
+  Rendered shared/_list.html.erb (21.7ms)
+  Rendered shared/_side.html.erb (2.5ms)
+Completed 200 OK in 3149ms (Views: 2980.0ms | ActiveRecord: 19.7ms)
+
+
+Started GET "/products" for 10.0.2.2 at 2019-07-15 08:49:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (7.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:12
+  Rendered products/index.html.erb within layouts/application (19.1ms)
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_list.html.erb:9
+  Rendered shared/_list.html.erb (19.5ms)
+  Rendered shared/_side.html.erb (2.7ms)
+Completed 200 OK in 6121ms (Views: 5975.9ms | ActiveRecord: 11.3ms)
+
+
