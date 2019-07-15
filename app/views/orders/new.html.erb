@@ -6,7 +6,7 @@
 
 <h3> 配送先指定</h3>
 
-  <%= f.collection_select :to_address, Address.all, :address,:address %><br>
+  <%= f.collection_select :to_address, Address.where(user_id: current_user.id), :address,:address %><br>
   <%= link_to "配送先を追加", new_address_path(current_user) %>
 
 

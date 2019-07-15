@@ -7,7 +7,6 @@ class Admins::UsersController < Admins::ApplicationController
 
   def show
     @user = User.find(params[:id])
-    #IDの渡し方がわからない @addresses = Address.where(user_id: users.id)
   end
 
   def edit

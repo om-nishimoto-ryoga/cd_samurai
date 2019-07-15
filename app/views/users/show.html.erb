@@ -1,31 +1,40 @@
 <div class="row content">
   <div class="col-sm-5 border">
 
-<h1> マイページ</h1>
-<div>
- <label>性別 : <%= @user.gender_i18n %></label>
-</div>
-<div class="field">
- <label>名前 : <%= @user.last_name + @user.first_name %></label><br>
-</div>
-</div>
+    <h1> マイページ</h1>
+    <div>
+      <label>性別 : <%= @user.gender_i18n %></label>
+    </div>
+    <div class="field">
+      <label>名前 : <%= @user.last_name + @user.first_name %></label><br>
+    </div>
+  </div>
 
   <div class="col-sm-5">
 
     <% @user.addresses.each_with_index do |address,i|%>
-    <div class="border">
-	<label>< 配送先<!-- 配送先番号 --><% i += 1 %><%= i %> ></label><br>
-	<label>宛名 : <%= address.to_name %>(<%= address.to_name_kana %>)</label><br>
-	 <label>郵便番号 : 〒<%= address.postal_code %></label><br>
-	 <label>住所 : <%= address.address %></label><br>
-	 <label>電話番号 : <%= address.tel_number %></label><br>
-    <%= link_to "変更", edit_address_path(address) %>
-    <%= link_to "削除", address_path(address), method: :delete %><br>
-    </div>
+      <div class="border">
+  	    <label>< 配送先<!-- 配送先番号 --><% i += 1 %><%= i %> ></label><br>
+  	    <label>宛名 : <%= address.to_name %>(<%= address.to_name_kana %>)</label><br>
+  	    <label>郵便番号 : 〒<%= address.postal_code %></label><br>
+  	    <label>住所 : <%= address.address %></label><br>
+  	    <label>電話番号 : <%= address.tel_number %></label><br>
+        <%= link_to "変更", edit_address_path(address) %>
+        <%= link_to "削除", address_path(address), method: :delete %><br>
+      </div>
     <%end%>
-</div>
-</div>
+      <%= link_to "配送先を追加する", new_address_path %>
+  </div>
 
-<div>
-<%= link_to "配送先を追加する", new_address_path %>
+  <div class="col-sm-10">
+    <div class="border">
+      <% @user.orders.each do |order| %>
+        <%= order.payment_method_i18n %><br>
+        <%= order.to_address %><br>
+        <div class="border"></div>
+        <p style="color: blue;"><%= order.created_at %></p><br>
+      <% end %>
+    </div>
+  </div>
+
 </div>
