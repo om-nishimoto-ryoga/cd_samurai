@@ -9,12 +9,13 @@ Rails.application.routes.draw do
   resources :addresses
 # 商品
   resources :orders, only: [:new,:create] do
-    resources :order_products, only: [:new,:show,:create]
+    resources :order_products, only: [:index,:new,:show,:create]
   end
   #cart情報
   resources :products do 
     resource :carts, only: [:create]
   end
+  match 'carts/all' => 'carts#update_all', :as => :update_all, :via => :put
   resources :carts, only: [:index,:update,:destroy]
 
 # 管理者側
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
    get '/' => 'products#index'
    resources :products
    resources :users
+  # ジャンル情報
+   resources :genres, only: [:index,:new,:create]
   # TOP画面
     end
     root 'home#top'

@@ -1,9 +1,21 @@
 
 <h1>カート内商品</h1>
 
+<%= form_tag update_all_path, method: :put do%>
 <div>
-<% @carts.each do |cart| %>
-<%= cart.product.cd_title%>
-<%end%>
+  <% @carts.each do |cart| %>
+   <%= fields_for "cart[]",cart do |fc| %>
+
+   <div>
+     <strong><%= cart.product.cd_title%></strong>
+     <%= attachment_image_tag cart.product, :product_image, :fill, 200, 200 %>
+     <%= fc.label :quantity, "数量"%>
+     <%= fc.select :quantity, [1,2,3,4,5,6,7,8,9,10] %>
+
+   <%end%>
+     <%= link_to "カートから削除", cart_path(cart), method: :delete %>
+   </div>
+  <%end%>
 </div>
-<%= link_to "商品一覧へ" , products_path %>
+  <%= submit_tag "購入確認画面へ" %>
+<%end%>

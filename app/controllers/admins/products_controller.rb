@@ -10,6 +10,7 @@ class Admins::ProductsController < Admins::ApplicationController
 
 	def new
 	@product = Product.new
+	@genres = Genre.all
 	end
 
 	def edit
@@ -39,6 +40,7 @@ class Admins::ProductsController < Admins::ApplicationController
 
 	def product_params
 	params.require(:product).permit(
+	:genre_id,
 	:cd_title,:artist_name,:label_name,:product_image,:price,:stock,:buy_capable,
 	  product_discs_attributes: [:id, :disc_title, :_destroy,
 		product_disc_songs_attributes: [:id, :song_name, :_destroy] ])
