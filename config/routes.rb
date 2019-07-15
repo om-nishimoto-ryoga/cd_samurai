@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :addresses
 # 商品
   resources :orders, only: [:new,:create] do
-    resources :order_products, only: [:new,:show,:create]
+    resources :order_products, only: [:index,:new,:show,:create]
   end
   #cart情報
   resources :products do 
@@ -26,6 +26,8 @@ Rails.application.routes.draw do
    get '/' => 'products#index'
    resources :products
    resources :users
+  # ジャンル情報
+   resources :genres, only: [:index,:new,:create]
   # TOP画面
     end
     root 'home#top'

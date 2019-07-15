@@ -1,0 +1,8 @@
+<h1> ジャンルを追加</h1>
+
+<%= form_for [:admins, @genre] do |f| %>
+    <%= f.label :genre_name, "ジャンル"%>
+	<%= f.text_field :genre_name %>
+
+	<%= f.submit "ジャンルを追加" %>
+<% end %>
