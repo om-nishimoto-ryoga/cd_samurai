@@ -15,6 +15,7 @@ class Admins::ProductsController < Admins::ApplicationController
 
 	def edit
 	@product = Product.find(params[:id])
+	@genres = Genre.all
 	end
 
 	def create

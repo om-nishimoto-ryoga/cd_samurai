@@ -11,7 +11,8 @@
  (<%= @user.last_name_kana + @user.first_name_kana %>)
  </label><br>
  <label>メールアドレス : <%= @user.email %></label><br>
- <label>生年月日 : <%= @user.birthday %></label>
+ <label>生年月日 : <%= @user.birth_date.strftime("%Y年%m月%d日") %></label><br>
+ <label>最終更新日 : <%= @user.updated_at.strftime("%Y年%m月%d日") %></label>
  </div>
  <%= link_to "編集" , edit_user_path(@user) %>
 </div>

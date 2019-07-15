@@ -27,8 +27,14 @@
 <%= @product.price %>円<br>
 <strong>在庫数</strong>
 <%= @product.stock %>個あるよ<br>
-<strong>ジャンル</strong>
-<%= @product.genre.genre_name %>
+
+<strong>ステータス</strong>
+<% if @product.buy_capable == true %>
+販売中
+<% else %>
+売り切れ
+<% end %>
+
 
 </p>
 <%= link_to "商品の編集", edit_admins_product_path(@product) %>
