@@ -2,6 +2,43 @@
 
 <%= form_for [@order,@order_product] do |f| %>
 
+	<h3> 商品情報</h3>
+
+	<div class="field">
+	  <%= f.label " CD/アルバム名" %>
+	  <%= f.hidden_field :cd_title %>
+	</div>
+
+	<div class="field">
+	  <%= f.label "アーティスト名" %>
+	  <%= f.hidden_field :artist_name %>
+	</div>
+
+	<div class="field">
+	  <%= f.label "レーベル名" %>
+	  <%= f.hidden_field :label_name %>
+	</div>
+
+	<div class="field">
+	  <%= f.label "ジャケット画像" %>
+	  <%= f.hidden_field :product_image %>
+	</div>
+
+	<div class="field">
+	  <%= f.label "価格" %>
+	  <%= f.hidden_field :price %>
+	</div>
+
+	<div class="field">
+	  <%= f.label "在庫数" %>
+	  <%= f.hidden_field :stock %>
+	</div>
+
+	<div class="field">
+	  <%= f.label "ジャンル" %>
+	  <%= f.hidden_field :genre_id,%><br>
+	</div>
+
 <h3> 購入金額・送料</h3>
 
 <h3> 配送先確認</h3>
@@ -10,6 +47,5 @@
 <h3> お支払い方法確認</h3>
 <%= @order.payment_method_i18n %><br>
 
-<%= f.submit %>
-
+	    <%= f.submit %>
 <% end %>
