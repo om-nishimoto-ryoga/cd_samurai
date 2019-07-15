@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @addresses = Address.where(user_id: current_user.id)
-
+    @carts = Cart.where(user_id: current_user.id)
   end
 
   def create
