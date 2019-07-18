@@ -1,44 +1,56 @@
 
 <h1>商品詳細</h1>
-
-<p>
-<%= attachment_image_tag @product, :product_image, :fill, 200, 200 %><br>
-<strong>CD/アルバム名</strong>
-<%= @product.cd_title %><br>
-
-<% @product.product_discs.each_with_index do |disc,i| %>
-  <strong>
-    ディスク<!-- ディスク番号 --><% i += 1 %><%= i %>
-  </strong>
-	<%= disc.disc_title %><br>
-	<% disc.product_disc_songs.each_with_index do |song,i| %>
-		<strong>
-		  曲名<!-- 曲番号 --><% i += 1 %><%= i %>
-		</strong>
-		<%= song.song_name %><br>
+<div class="col-xs-10">
+	<div class="col-xs-6" style="text-align: center;">
+	<h3><%= @product.cd_title %></h3>
+	<div><%= attachment_image_tag @product, :product_image, :fill, 200, 200 %></div>
+	<% if @product.buy_capable == true %>
+	<span style="color: blue;">販売中</span>
+	<% else %>
+	<span style="color: red;">売り切れ</span>
 	<% end %>
 
-<% end %>
+	</div>
 
-<strong>アーティスト名</strong>
-<%= @product.artist_name %><br>
-<strong>レーベル名</strong>
-<%= @product.label_name %><br>
-<strong>価格</strong>
-<%= @product.price %>円<br>
-<strong>在庫数</strong>
-<%= @product.stock %>個あるよ<br>
-<strong>ジャンル</strong>
-<%= @product.genre.genre_name %><br>
-<strong>ステータス</strong>
-<% if @product.buy_capable == true %>
-販売中
-<% else %>
-売り切れ
-<% end %>
+	<div class="col-xs-6">
+		<h3> CD/アルバム情報</h3>
+		<% @product.product_discs.each_with_index do |disc,i| %>
+		  <strong>
+		    ディスク<!-- ディスク番号 --><% i += 1 %><%= i %>
+		  </strong>
+			<%= disc.disc_title %><br>
+			<% disc.product_disc_songs.each_with_index do |song,i| %>
+				<strong>
+				  曲名<!-- 曲番号 --><% i += 1 %><%= i %>
+				</strong>
+				<%= song.song_name %><br>
+			<% end %>
 
-</p>
+		<% end %>
 
-<%= link_to product_carts_path(@product), method: :post do %>
-	<strong>カートに入れる</strong>
+		<strong>アーティスト名</strong>
+		<%= @product.artist_name %><br>
+		<strong>レーベル名</strong>
+		<%= @product.label_name %><br>
+		<strong>ジャンル</strong>
+		<%= @product.genre.genre_name %><br>
+		<strong>在庫数</strong>
+		<%= @product.stock %>個あるよ<br>
+		<strong>価格</strong>
+		<%= @product.price %>円<br>
+	</div>
+</div>
+
+<div class="col-xs-10", style="text-align: right;">
+	<div class="field">
+	<%= label :quantity, "数量"%>
+	<%= select_tag :quantity, options_for_select([1,2,3,4,5,6,7,8,9,10]) %>
+	<br>
+	<%= label :price, "小計" %>
+	<%= @product.price %>円
+	</div>
+
+	<%= link_to product_carts_path(@product), method: :post do %>
+		<p style="text-align: right;"><strong>カートに入れる</strong></p>
 	<%end%>
+</div>
