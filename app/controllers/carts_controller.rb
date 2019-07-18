@@ -11,7 +11,6 @@ class CartsController < ApplicationController
     @cart = current_user.carts.new(product_id: @product.id)
     @cart.save
     redirect_to carts_path
-
   end
 
   def update_all

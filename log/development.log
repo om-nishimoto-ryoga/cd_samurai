@@ -25601,3 +25601,195 @@ Processing by ProductsController#index as HTML
 Completed 200 OK in 6121ms (Views: 5975.9ms | ActiveRecord: 11.3ms)
 
 
+Started GET "/admins/sign_in" for 10.0.2.2 at 2019-07-17 04:17:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Admins::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb
+  Rendered admins/shared/_links.html.erb (3.2ms)
+  Rendered admins/sessions/new.html.erb (5314.7ms)
+Completed 200 OK in 5612ms (Views: 5457.1ms | ActiveRecord: 29.8ms)
+
+
+Started POST "/admins/sign_in" for 10.0.2.2 at 2019-07-17 04:17:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i5weH+ja81WJpXBsNE+HRa6S/YpCpopx8VRVHPeFiO7TmJzDiUQXv8gr/KeI6Yzsr1z/K4OgrpmV+vq+ZBVP0g==", "admin"=>{"email"=>"yayoiken@test", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mAdmin Load (6.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "yayoiken@test"], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 646ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2019-07-17 04:17:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (1.5ms)
+  [1m[36mAdmin Load (5.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered admins/_side.html.erb (2.2ms)
+Completed 200 OK in 3889ms (Views: 3786.0ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/admins/products/new" for 10.0.2.2 at 2019-07-17 04:17:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::ProductsController#new as HTML
+  [1m[36mAdmin Load (2.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering admins/products/new.html.erb within layouts/application
+  Rendered admins/products/_product_disc_song_fields.html.erb (4.4ms)
+  Rendered admins/products/_product_disc_fields.html.erb (341.0ms)
+  [1m[36mGenre Load (10.9ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/views/admins/products/_form.html.erb:51
+  Rendered admins/products/_form.html.erb (814.3ms)
+  Rendered admins/products/new.html.erb within layouts/application (953.7ms)
+  Rendered admins/_side.html.erb (1.9ms)
+Completed 200 OK in 3578ms (Views: 3149.9ms | ActiveRecord: 165.9ms)
+
+
+Started POST "/admins/products" for 10.0.2.2 at 2019-07-17 04:18:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HVUvurl9LXIJWjpdGzRkr//5ZBpQrMA1MX63J7YbyVg8vwvd8hx593w3G/3/PSBKqRoqZggZiO27UESuKXxdbg==", "product"=>{"cd_title"=>"igigi", "product_discs_attributes"=>{"1563337086640"=>{"disc_title"=>"jhggfufu", "_destroy"=>"false", "product_disc_songs_attributes"=>{"1563337090606"=>{"song_name"=>"biygy", "_destroy"=>"false"}, "1563337094585"=>{"song_name"=>"bihviygvyi", "_destroy"=>"false"}}}, "1563337097812"=>{"disc_title"=>"hvhvvih", "_destroy"=>"false", "product_disc_songs_attributes"=>{"1563337102739"=>{"song_name"=>"buibi", "_destroy"=>"false"}}}}, "artist_name"=>"jjfufu", "label_name"=>"huifgiagyfi", "product_image"=>#<ActionDispatch::Http::UploadedFile:0x00007f1a54b6f010 @tempfile=#<Tempfile:/tmp/RackMultipart20190717-2740-9q4yqa.png>, @original_filename="2019-07-14 (1).png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"product[product_image]\"; filename=\"2019-07-14 (1).png\"\r\nContent-Type: image/png\r\n">, "price"=>"777", "stock"=>"77", "genre_id"=>"1"}, "commit"=>"Create Product"}
+  [1m[36mAdmin Load (5.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/admins/products_controller.rb:23
+  [1m[36mGenre Load (4.5ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admins/products_controller.rb:23
+  [1m[36mProduct Create (17.7ms)[0m  [1m[32mINSERT INTO "products" ("genre_id", "artist_name", "cd_title", "label_name", "product_image_id", "price", "stock", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["genre_id", 1], ["artist_name", "jjfufu"], ["cd_title", "igigi"], ["label_name", "huifgiagyfi"], ["product_image_id", "4a46b08bcc7ad241ffb7643f74ced6a3ac7c6c15dd09e0319d2a4c7fd541"], ["price", 777], ["stock", 77], ["created_at", "2019-07-17 04:18:51.173919"], ["updated_at", "2019-07-17 04:18:51.173919"]]
+  ↳ app/controllers/admins/products_controller.rb:23
+  [1m[36mProductDisc Create (8.4ms)[0m  [1m[32mINSERT INTO "product_discs" ("disc_title", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["disc_title", "jhggfufu"], ["product_id", 6], ["created_at", "2019-07-17 04:18:51.198036"], ["updated_at", "2019-07-17 04:18:51.198036"]]
+  ↳ app/controllers/admins/products_controller.rb:23
+  [1m[36mProductDiscSong Create (5.2ms)[0m  [1m[32mINSERT INTO "product_disc_songs" ("song_name", "product_disc_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["song_name", "biygy"], ["product_disc_id", 6], ["created_at", "2019-07-17 04:18:51.211346"], ["updated_at", "2019-07-17 04:18:51.211346"]]
+  ↳ app/controllers/admins/products_controller.rb:23
+  [1m[36mProductDiscSong Create (0.5ms)[0m  [1m[32mINSERT INTO "product_disc_songs" ("song_name", "product_disc_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["song_name", "bihviygvyi"], ["product_disc_id", 6], ["created_at", "2019-07-17 04:18:51.222636"], ["updated_at", "2019-07-17 04:18:51.222636"]]
+  ↳ app/controllers/admins/products_controller.rb:23
+  [1m[36mProductDisc Create (0.5ms)[0m  [1m[32mINSERT INTO "product_discs" ("disc_title", "product_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["disc_title", "hvhvvih"], ["product_id", 6], ["created_at", "2019-07-17 04:18:51.242208"], ["updated_at", "2019-07-17 04:18:51.242208"]]
+  ↳ app/controllers/admins/products_controller.rb:23
+  [1m[36mProductDiscSong Create (0.5ms)[0m  [1m[32mINSERT INTO "product_disc_songs" ("song_name", "product_disc_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["song_name", "buibi"], ["product_disc_id", 7], ["created_at", "2019-07-17 04:18:51.258353"], ["updated_at", "2019-07-17 04:18:51.258353"]]
+  ↳ app/controllers/admins/products_controller.rb:23
+  [1m[35m (13.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/admins/products_controller.rb:23
+Redirected to http://localhost:3000/admins/products
+Completed 302 Found in 307ms (ActiveRecord: 56.6ms)
+
+
+Started GET "/admins/products" for 10.0.2.2 at 2019-07-17 04:18:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::ProductsController#index as HTML
+  [1m[36mAdmin Load (6.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering admins/products/index.html.erb within layouts/application
+  [1m[36mProduct Load (5.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/admins/products/index.html.erb:12
+  Rendered admins/products/index.html.erb within layouts/application (16.3ms)
+  Rendered admins/_side.html.erb (3.1ms)
+Completed 200 OK in 2291ms (Views: 2147.6ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/attachments/ee2cf5836b1839b21afe9484351d8eb5b2e5dbb3/store/fill/100/100/4a46b08bcc7ad241ffb7643f74ced6a3ac7c6c15dd09e0319d2a4c7fd541/product_image" for 10.0.2.2 at 2019-07-17 04:18:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Refile::App: [2019-07-17 04:18:54 +0000] GET "/ee2cf5836b1839b21afe9484351d8eb5b2e5dbb3/store/fill/100/100/4a46b08bcc7ad241ffb7643f74ced6a3ac7c6c15dd09e0319d2a4c7fd541/product_image" 200 563.8ms
+
+Started GET "/admins/products/6" for 10.0.2.2 at 2019-07-17 04:18:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mAdmin Load (4.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (3.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/admins/products_controller.rb:8
+  Rendering admins/products/show.html.erb within layouts/application
+  [1m[36mProductDisc Load (4.8ms)[0m  [1m[34mSELECT "product_discs".* FROM "product_discs" WHERE "product_discs"."product_id" = ?[0m  [["product_id", 6]]
+  ↳ app/views/admins/products/show.html.erb:8
+  [1m[36mProductDiscSong Load (4.3ms)[0m  [1m[34mSELECT "product_disc_songs".* FROM "product_disc_songs" WHERE "product_disc_songs"."product_disc_id" = ?[0m  [["product_disc_id", 6]]
+  ↳ app/views/admins/products/show.html.erb:13
+  [1m[36mProductDiscSong Load (4.5ms)[0m  [1m[34mSELECT "product_disc_songs".* FROM "product_disc_songs" WHERE "product_disc_songs"."product_disc_id" = ?[0m  [["product_disc_id", 7]]
+  ↳ app/views/admins/products/show.html.erb:13
+  [1m[36mGenre Load (4.5ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admins/products/show.html.erb:31
+  Rendered admins/products/show.html.erb within layouts/application (61.8ms)
+  Rendered admins/_side.html.erb (1.7ms)
+Completed 200 OK in 2423ms (Views: 2263.3ms | ActiveRecord: 25.9ms)
+
+
+Started GET "/attachments/2a15012448fa7d23d5cfe4fe32c4592e70df3b38/store/fill/200/200/4a46b08bcc7ad241ffb7643f74ced6a3ac7c6c15dd09e0319d2a4c7fd541/product_image" for 10.0.2.2 at 2019-07-17 04:19:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Refile::App: [2019-07-17 04:19:01 +0000] GET "/2a15012448fa7d23d5cfe4fe32c4592e70df3b38/store/fill/200/200/4a46b08bcc7ad241ffb7643f74ced6a3ac7c6c15dd09e0319d2a4c7fd541/product_image" 200 457.8ms
+
+Started GET "/admins/products/6/edit" for 10.0.2.2 at 2019-07-17 04:19:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::ProductsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mAdmin Load (10.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mProduct Load (4.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/admins/products_controller.rb:17
+  Rendering admins/products/edit.html.erb within layouts/application
+  [1m[36mProductDisc Load (7.0ms)[0m  [1m[34mSELECT "product_discs".* FROM "product_discs" WHERE "product_discs"."product_id" = ?[0m  [["product_id", 6]]
+  ↳ app/views/admins/products/_form.html.erb:13
+  [1m[36mProductDiscSong Load (4.7ms)[0m  [1m[34mSELECT "product_disc_songs".* FROM "product_disc_songs" WHERE "product_disc_songs"."product_disc_id" = ?[0m  [["product_disc_id", 6]]
+  ↳ app/views/admins/products/_product_disc_fields.html.erb:10
+  Rendered admins/products/_product_disc_song_fields.html.erb (3.9ms)
+  Rendered admins/products/_product_disc_song_fields.html.erb (2.1ms)
+  Rendered admins/products/_product_disc_song_fields.html.erb (4.0ms)
+  Rendered admins/products/_product_disc_fields.html.erb (464.5ms)
+  [1m[36mProductDiscSong Load (5.2ms)[0m  [1m[34mSELECT "product_disc_songs".* FROM "product_disc_songs" WHERE "product_disc_songs"."product_disc_id" = ?[0m  [["product_disc_id", 7]]
+  ↳ app/views/admins/products/_product_disc_fields.html.erb:10
+  Rendered admins/products/_product_disc_song_fields.html.erb (2.3ms)
+  Rendered admins/products/_product_disc_song_fields.html.erb (3.2ms)
+  Rendered admins/products/_product_disc_fields.html.erb (255.9ms)
+  Rendered admins/products/_product_disc_song_fields.html.erb (2.6ms)
+  Rendered admins/products/_product_disc_fields.html.erb (109.6ms)
+  [1m[36mGenre Load (4.7ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/views/admins/products/_form.html.erb:51
+  Rendered admins/products/_form.html.erb (1263.7ms)
+  Rendered admins/products/edit.html.erb within layouts/application (1403.7ms)
+  Rendered admins/_side.html.erb (1.9ms)
+Completed 200 OK in 3780ms (Views: 3570.9ms | ActiveRecord: 36.3ms)
+
+
+Started GET "/admins/genres/new" for 10.0.2.2 at 2019-07-17 04:19:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::GenresController#new as HTML
+  Rendering admins/genres/new.html.erb within layouts/application
+  Rendered admins/genres/new.html.erb within layouts/application (6.1ms)
+  [1m[36mAdmin Load (5.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  Rendered admins/_side.html.erb (2.0ms)
+Completed 200 OK in 2430ms (Views: 2317.0ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/admins/genres" for 10.0.2.2 at 2019-07-17 04:20:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::GenresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g4Y52zI8R6orUGW1ZYXdiUmwoRC/beB7guWIhWIhoYCgO2KnHXKvkEt4gI7y9ujtHHIYIf0OoLVNFArWX350uw==", "genre"=>{"genre_name"=>"jpop"}, "commit"=>"ジャンルを追加"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/admins/genres_controller.rb:8
+  [1m[36mGenre Create (30.5ms)[0m  [1m[32mINSERT INTO "genres" ("genre_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["genre_name", "jpop"], ["created_at", "2019-07-17 04:20:15.629435"], ["updated_at", "2019-07-17 04:20:15.629435"]]
+  ↳ app/controllers/admins/genres_controller.rb:8
+  [1m[35m (19.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/admins/genres_controller.rb:8
+Redirected to http://localhost:3000/admins/products/new
+Completed 302 Found in 72ms (ActiveRecord: 50.3ms)
+
+
+Started GET "/admins/products/new" for 10.0.2.2 at 2019-07-17 04:20:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admins::ProductsController#new as HTML
+  [1m[36mAdmin Load (8.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendering admins/products/new.html.erb within layouts/application
+  Rendered admins/products/_product_disc_song_fields.html.erb (4.0ms)
+  Rendered admins/products/_product_disc_fields.html.erb (142.2ms)
+  [1m[36mGenre Load (4.7ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  ↳ app/views/admins/products/_form.html.erb:51
+  Rendered admins/products/_form.html.erb (335.0ms)
+  Rendered admins/products/new.html.erb within layouts/application (430.6ms)
+  Rendered admins/_side.html.erb (2.1ms)
+Completed 200 OK in 2641ms (Views: 2516.7ms | ActiveRecord: 12.9ms)
+
+

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :order_products, only: [:index,:new,:show,:create]
   end
   #cart情報
-  resources :products do 
+  resources :products do
     resource :carts, only: [:create]
   end
   match 'carts/all' => 'carts#update_all', :as => :update_all, :via => :put
