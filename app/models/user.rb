@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_many :order_products
 
   enum gender: {man:0, woman:1, custom:2}
+  # 論理削除
+  acts_as_paranoid
 end
