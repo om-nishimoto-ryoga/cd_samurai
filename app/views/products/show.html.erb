@@ -29,7 +29,13 @@
 <strong>在庫数</strong>
 <%= @product.stock %>個あるよ<br>
 <strong>ジャンル</strong>
-<%= @product.genre.genre_name %>
+<%= @product.genre.genre_name %><br>
+<strong>ステータス</strong>
+<% if @product.buy_capable == true %>
+販売中
+<% else %>
+売り切れ
+<% end %>
 
 </p>
 
