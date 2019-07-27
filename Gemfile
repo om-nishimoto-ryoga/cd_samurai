@@ -76,3 +76,5 @@ gem 'jquery-rails'
 gem 'enum_help'
 gem 'bootstrap-sass', '~> 3.3.6'
 
+#論理削除用のGem
+gem 'paranoia'

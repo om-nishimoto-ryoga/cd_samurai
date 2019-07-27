@@ -3,23 +3,19 @@
 <%= form_for @order do |f| %>
 
   <h2>商品名</h2>
-	<% @carts.each do |cart| %>
-	<%= f.fields_for :order_products do |product_form| %>
+	<% current_user.carts.each do |cart| %>
    <p>
+   	<strong>CDジャケット</strong>
+    <%= attachment_image_tag cart.product, :product_image, :fill, 200, 200 %>
    	<strong>アーティスト名</strong>
    	   <%= cart.product.artist_name %>
-		<%= product_form.hidden_field :artist_name, value: cart.product.artist_name %>
 	<strong>CDタイトル</strong>
    	   <%= cart.product.cd_title %>
-		<%= product_form.hidden_field :cd_title, value: cart.product.cd_title %>
 	<strong>レーベル名</strong>
    	   <%= cart.product.label_name %>
-		<%= product_form.hidden_field :label_name, value: cart.product.label_name %>
 	<strong>価格</strong>
    	   <%= cart.product.price %>
-		<%= product_form.hidden_field :price, value: cart.product.price %>
    </p>
-    <% end %>
 
     <% end %>
   <h3> 購入金額・送料</h3>

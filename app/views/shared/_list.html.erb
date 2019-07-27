@@ -10,26 +10,25 @@
         <li><%= link_to("", carts_path, class: "glyphicon glyphicon-shopping-cart itemsize") %></li>
         <li><%= link_to('', destroy_user_session_path, class: "glyphicon glyphicon-log-in itemsize", :method => :delete) %></li>
     </ul>
-    <dl class="searchbox">
-  <%= search_form_for @search, url: products_path do |f| %>
-    <dt><%= f.text_field :cd_title_cont ,placeholder: '検索するCDタイトルを入力...' %></dt>
-    <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
-  <% end %>
-     </dl>
+    <dl class="searchbox" style="padding-top: 15px;">
+      <%= search_form_for @search, url: products_path do |f| %>
+        <dt><%= f.text_field :cd_title_cont ,placeholder: '検索するCDタイトルを入力...' ,:size => "60"%>
+        <%= f.submit ("検索") , class: 'search-btn'%></dt>
+      <% end %>
+    </dl>
 </div>
 </nav>
 
-    
 <% else %>
-　　　
-    <li class="active">  <%= link_to "ログイン/会員登録", new_user_session_path %></li>
+
+      <li class="active">  <%= link_to "ログイン/会員登録", new_user_session_path %></li>
     </ul>
-    <div class="navbar-form">
-  <%= search_form_for @search, url: products_path do |f| %>
-    <div><%= f.text_field :cd_title_cont ,placeholder: '検索するCDタイトルを入力...' %></div>
-    <%= f.submit ("検索") , class: 'search-btn'%>
-  <% end %>
-  </div>
+    <dl class="searchbox" style="padding-top: 15px;">
+      <%= search_form_for @search, url: products_path do |f| %>
+        <dt><%= f.text_field :cd_title_cont ,placeholder: '検索するCDタイトルを入力...' ,:size => "60"%>
+        <%= f.submit ("検索") , class: 'search-btn'%></dt>
+      <% end %>
+    </dl>
 </nav>
 
 <%end%>
