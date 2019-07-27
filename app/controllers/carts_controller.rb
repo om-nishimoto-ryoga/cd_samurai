@@ -16,9 +16,9 @@ class CartsController < ApplicationController
   def update_all
     params.permit!
     params[:cart].keys.each do |id|
-      @cart = Cart.find(id.to_i)
-      @cart.update_attributes(params[:cart][id])
-  end
+    @cart = Cart.find(id.to_i)
+    @cart.update_attributes(params[:cart][id])
+    end
   redirect_to new_order_path
   end
 

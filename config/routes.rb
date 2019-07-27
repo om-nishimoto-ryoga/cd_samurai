@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resource :carts, only: [:create]
   end
   match 'carts/all' => 'carts#update_all', :as => :update_all, :via => :put
-  resources :carts, only: [:index,:update,:destroy]
+  resources :carts, only: [:index,:destroy]
 
 # 管理者側
   devise_for :admins, controllers: {

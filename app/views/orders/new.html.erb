@@ -2,18 +2,37 @@
 
 <%= form_for @order do |f| %>
 
-<h3> 購入金額・送料</h3>
+  <h2>商品名</h2>
+	<% @carts.each do |cart| %>
+	<%= f.fields_for :order_products do |product_form| %>
+   <p>
+   	<strong>アーティスト名</strong>
+   	   <%= cart.product.artist_name %>
+		<%= product_form.hidden_field :artist_name, value: cart.product.artist_name %>
+	<strong>CDタイトル</strong>
+   	   <%= cart.product.cd_title %>
+		<%= product_form.hidden_field :cd_title, value: cart.product.cd_title %>
+	<strong>レーベル名</strong>
+   	   <%= cart.product.label_name %>
+		<%= product_form.hidden_field :label_name, value: cart.product.label_name %>
+	<strong>価格</strong>
+   	   <%= cart.product.price %>
+		<%= product_form.hidden_field :price, value: cart.product.price %>
+   </p>
+    <% end %>
 
-<h3> 配送先指定</h3>
+    <% end %>
+  <h3> 購入金額・送料</h3>
+
+
+  <h3> 配送先指定</h3>
 
   <%= f.collection_select :to_address, Address.where(user_id: current_user.id), :address,:address %><br>
   <%= link_to "配送先を追加", new_address_path(current_user) %>
 
 
-<h3> お支払い方法選択</h3>
-<%= f.select :payment_method, Order.payment_methods_i18n.keys.map {|k| [Order.payment_methods_i18n[k] , k]} %><br>
+  <h3> お支払い方法選択</h3>
+  <%= f.select :payment_method, Order.payment_methods_i18n.keys.map {|k| [Order.payment_methods_i18n[k] , k]} %>
 
-<%= f.submit %>
-
-<% end %>
-
+  <%= f.submit %>
+<%end%>

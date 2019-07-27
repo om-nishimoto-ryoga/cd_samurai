@@ -47,6 +47,12 @@
 	</div>
 
 	<div class="field">
+	  <%= f.label "ステータス" %>
+	  <label><%= f.radio_button :buy_capable, true %> 販売中 </label>
+	  <label><%= f.radio_button :buy_capable, false %> 売り切れ</label>
+	</div>
+
+	<div class="field">
 	  <%= f.label "ジャンル" %>
 	  <%= f.collection_select :genre_id, @genres, :id,:genre_name %><br>
 	  <%= link_to "ジャンルを追加", new_admins_genre_path %>
