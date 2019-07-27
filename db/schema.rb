@@ -124,8 +124,8 @@ ActiveRecord::Schema.define(version: 2019_07_17_072150) do
     t.integer "gender"
     t.integer "birthday"
     t.boolean "login_allowed", default: true
-    t.time "deleted_at"
     t.datetime "birth_date"
+    t.time "deleted_at"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

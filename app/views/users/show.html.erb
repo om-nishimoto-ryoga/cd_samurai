@@ -1,4 +1,5 @@
 <div class="row content">
+
   <div class="col-xs-10">
   <h1> マイページ</h1>
     <div class="col-xs-5 border" style="margin-right: 50px;">
@@ -45,7 +46,23 @@
         <%= order.to_address %><br>
         <div class="border"></div>
         <p style="color: blue;"><%= order.created_at %></p><br>
+        <% order.order_products.each do |op| %>
+
+            <p>
+            <strong>CDジャケット</strong>
+             <%= attachment_image_tag op, :product_image, :fill, 200, 200 %>
+            <strong>アーティスト名</strong>
+                <%= op.artist_name %>
+            <strong>CDタイトル</strong>
+                <%= op.cd_title %>
+            <strong>レーベル名</strong>
+                <%= op.label_name %>
+            <strong>価格</strong>
+                <%= op.price %>
+            </p>
+         
       <% end %>
+      <%end%>
     </div>
     <%= link_to "退会する", withdrawal_user_path(@user) %>
   </div>

@@ -2,18 +2,33 @@
 
 <%= form_for @order do |f| %>
 
-<h3> 購入金額・送料</h3>
+  <h2>商品名</h2>
+	<% current_user.carts.each do |cart| %>
+   <p>
+   	<strong>CDジャケット</strong>
+    <%= attachment_image_tag cart.product, :product_image, :fill, 200, 200 %>
+   	<strong>アーティスト名</strong>
+   	   <%= cart.product.artist_name %>
+	<strong>CDタイトル</strong>
+   	   <%= cart.product.cd_title %>
+	<strong>レーベル名</strong>
+   	   <%= cart.product.label_name %>
+	<strong>価格</strong>
+   	   <%= cart.product.price %>
+   </p>
 
-<h3> 配送先指定</h3>
+    <% end %>
+  <h3> 購入金額・送料</h3>
+
+
+  <h3> 配送先指定</h3>
 
   <%= f.collection_select :to_address, Address.where(user_id: current_user.id), :address,:address %><br>
   <%= link_to "配送先を追加", new_address_path(current_user) %>
 
 
-<h3> お支払い方法選択</h3>
-<%= f.select :payment_method, Order.payment_methods_i18n.keys.map {|k| [Order.payment_methods_i18n[k] , k]} %><br>
+  <h3> お支払い方法選択</h3>
+  <%= f.select :payment_method, Order.payment_methods_i18n.keys.map {|k| [Order.payment_methods_i18n[k] , k]} %>
 
-<%= f.submit %>
-
-<% end %>
-
+  <%= f.submit %>
+<%end%>

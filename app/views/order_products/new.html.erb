@@ -2,6 +2,24 @@
 
 <%= form_for [@order,@order_product] do |f| %>
 
+	<h2> 商品情報</h2>
+
+    <h3>商品名</h3>
+	<% current_user.carts.each do |cart| %>
+    <p>
+   	<strong>CDジャケット</strong>
+    <%= attachment_image_tag cart.product, :product_image, :fill, 200, 200 %>
+   	<strong>アーティスト名</strong>
+   	   <%= cart.product.artist_name %>
+	<strong>CDタイトル</strong>
+   	   <%= cart.product.cd_title %>
+	<strong>レーベル名</strong>
+   	   <%= cart.product.label_name %>
+	<strong>価格</strong>
+   	   <%= cart.product.price %>
+   </p>
+
+    <% end %>
 <h3> 購入金額・送料</h3>
 
 <h3> 配送先確認</h3>
@@ -10,6 +28,5 @@
 <h3> お支払い方法確認</h3>
 <%= @order.payment_method_i18n %><br>
 
-<%= f.submit %>
-
+	<%= f.submit %>
 <% end %>
