@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 # 住所
   resources :addresses
 # 商品
-  resources :orders, only: [:new,:create] do
+  resources :orders, only: [:new,:show,:create] do
     resources :order_products, only: [:index,:new,:show,:create]
   end
   #cart情報
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
    resources :products
    resources :users
   # ジャンル情報
-   resources :genres, only: [:index,:new,:create]
+   resources :genres, only: [:index,:create,:destroy]
   # TOP画面
     end
     root 'home#top'

@@ -1,25 +1,6 @@
-<h1>購入確認画面</h1>
+<h1>お支払方法・配送先選択</h1>
 
 <%= form_for @order do |f| %>
-
-  <h2>商品名</h2>
-	<% current_user.carts.each do |cart| %>
-   <p>
-   	<strong>CDジャケット</strong>
-    <%= attachment_image_tag cart.product, :product_image, :fill, 200, 200 %>
-   	<strong>アーティスト名</strong>
-   	   <%= cart.product.artist_name %>
-	<strong>CDタイトル</strong>
-   	   <%= cart.product.cd_title %>
-	<strong>レーベル名</strong>
-   	   <%= cart.product.label_name %>
-	<strong>価格</strong>
-   	   <%= cart.product.price %>
-   </p>
-
-    <% end %>
-  <h3> 購入金額・送料</h3>
-
 
   <h3> 配送先指定</h3>
 

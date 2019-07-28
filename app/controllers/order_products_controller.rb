@@ -3,7 +3,7 @@ class OrderProductsController < ApplicationController
     @order = Order.find(params[:order_id])
     @order_product = OrderProduct.new
   end
-
+  
   def create
     order = Order.find(params[:order_id])
     carts = current_user.carts
