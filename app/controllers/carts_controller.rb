@@ -6,10 +6,13 @@ class CartsController < ApplicationController
   end
 
   def create
-	  @product = Product.find(params[:product_id])
-    @cart = current_user.carts.new(product_id: @product.id)
-    @cart.save
-    redirect_to carts_path
+    @product = Product.find(params[:product_id])
+    if @product.presence
+      
+    else 
+      @cart = current_user.carts.new(product_id: @product.id)
+      @cart.save
+      redirect_to carts_path
   end
 
   def update_all

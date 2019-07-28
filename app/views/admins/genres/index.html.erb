@@ -1,4 +1,10 @@
-<h1> ジャンルを追加</h1>
+<h1> ジャンル一覧</h1>
+
+<% @genres.each do |genre|%>
+  <%= genre.genre_name %>
+  <%= link_to '削除', admins_genre_path(genre), method: :delete %>
+
+  <%end%>
 
 <%= form_for [:admins, @genre] do |f| %>
     <%= f.label :genre_name, "ジャンル"%>
