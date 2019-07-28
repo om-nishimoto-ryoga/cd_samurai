@@ -6,7 +6,6 @@ class CartsController < ApplicationController
   end
 
   def create
-
 	  @product = Product.find(params[:product_id])
     @cart = current_user.carts.new(product_id: @product.id)
     @cart.save
