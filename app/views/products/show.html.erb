@@ -42,15 +42,14 @@
 </div>
 
 <div class="col-xs-10", style="text-align: right;">
-	<div class="field">
-	<%= label :quantity, "数量"%>
-	<%= select_tag :quantity, options_for_select([1,2,3,4,5,6,7,8,9,10]) %>
-	<br>
-	<%= label :price, "小計" %>
-	<%= @product.price %>円
-	</div>
-
+   <% if @product.cart_by(current_user) %>
+   <%= link_to carts_path  do %>
+   <% @product.cart_add(current_user) %>
+　　<p style="text-align: right;"><strong>カートに入れる</strong></p>
+   <% end %>
+   <%else%>
 	<%= link_to product_carts_path(@product), method: :post do %>
 		<p style="text-align: right;"><strong>カートに入れる</strong></p>
+	<%end%>
 	<%end%>
 </div>
