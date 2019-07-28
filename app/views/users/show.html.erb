@@ -14,7 +14,6 @@
         <% else %>
           <label>生年月日 : <%= @user.birth_date.strftime("%Y年%m月%d日") %></label><br>
         <% end %>
-        <label>最終更新日 : <%= @user.updated_at.strftime("%Y年%m月%d日") %></label>
       </div>
       <%= link_to "編集" , edit_user_path(@user) %>
     </div>
@@ -40,28 +39,26 @@
     <h2> 購入履歴一覧</h2>
     <div class="border">
       <% @user.orders.each do |order| %>
-        <%= order.payment_method_i18n %><br>
-        <%= order.to_address %><br>
-        <div class="border"></div>
-        <p style="color: blue;"><%= order.created_at %></p><br>
         <% order.order_products.each do |op| %>
-
             <p>
-            <strong>CDジャケット</strong>
              <%= attachment_image_tag op, :product_image, :fill, 200, 200 %>
-            <strong>アーティスト名</strong>
-                <%= op.artist_name %>
             <strong>CDタイトル</strong>
                 <%= op.cd_title %>
+            <strong>アーティスト名</strong>
+                <%= op.artist_name %>
             <strong>レーベル名</strong>
                 <%= op.label_name %>
             <strong>価格</strong>
                 <%= op.price %>
+            <strong style="color: blue; ">購入日<%= op.created_at %></strong>
+
+            <%= link_to "注文内容確認", order_path(order) %>
+            
             </p>
-         
+           <div class="border"></div>
       <% end %>
       <%end%>
-    </div>
+      </div>
     <%= link_to "退会する", withdrawal_user_path(@user) %>
   </div>
 
