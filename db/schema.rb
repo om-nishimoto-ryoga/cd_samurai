@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_15_113505) do
+ActiveRecord::Schema.define(version: 2019_07_17_072150) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
@@ -125,6 +125,8 @@ ActiveRecord::Schema.define(version: 2019_07_15_113505) do
     t.integer "birthday"
     t.boolean "login_allowed", default: true
     t.datetime "birth_date"
+    t.time "deleted_at"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

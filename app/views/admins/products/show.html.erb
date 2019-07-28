@@ -1,43 +1,52 @@
-<h1> 商品詳細</h1>
 
-<p>
-<%= attachment_image_tag @product, :product_image, :fill, 200, 200 %><br>
-<strong>CD/アルバム名</strong>
-<%= @product.cd_title %><br>
+<h1>商品詳細</h1>
 
-<% @product.product_discs.each_with_index do |disc,i| %>
-  <strong>
-    ディスク<!-- ディスク番号 --><% i += 1 %><%= i %>
-  </strong>
-	<%= disc.disc_title %><br>
-	<% disc.product_disc_songs.each_with_index do |song,i| %>
-		<strong>
-		  曲名<!-- 曲番号 --><% i += 1 %><%= i %>
-		</strong>
-		<%= song.song_name %><br>
+<div class="col-sm-5">
+<h3><%= @product.cd_title %></h3>
+<%= attachment_image_tag @product, :product_image, :fill, 200, 200 %>
+</div>
+
+<div class="col-sm-5">
+	<h3> CD/アルバム情報</h3>
+	<p>
+	<% @product.product_discs.each_with_index do |disc,i| %>
+	  <strong>
+	    ディスク<!-- ディスク番号 --><% i += 1 %><%= i %>
+	  </strong>
+		<%= disc.disc_title %><br>
+		<% disc.product_disc_songs.each_with_index do |song,i| %>
+			<strong>
+			  曲名<!-- 曲番号 --><% i += 1 %><%= i %>
+			</strong>
+			<%= song.song_name %><br>
+		<% end %>
+
 	<% end %>
 
-<% end %>
+	<strong>アーティスト名</strong>
+	<%= @product.artist_name %><br>
+	<strong>レーベル名</strong>
+	<%= @product.label_name %><br>
+	<strong>ジャンル</strong>
+	<%= @product.genre.genre_name %><br>
 
-<strong>アーティスト名</strong>
-<%= @product.artist_name %><br>
-<strong>レーベル名</strong>
-<%= @product.label_name %><br>
-<strong>価格</strong>
-<%= @product.price %>円<br>
-<strong>在庫数</strong>
-<%= @product.stock %>個あるよ<br>
+	<div class="field">
+	<strong>価格</strong>
+	<%= @product.price %>円<br>
+	<strong>在庫数</strong>
+	<%= @product.stock %>個あるよ<br>
+	<strong>ステータス</strong>
+	<% if @product.buy_capable == true %>
+	<span style="color: blue;">販売中</span>
+	<% else %>
+	<span style="color: red;">売り切れ</span>
+	<% end %>
+	</div>
 
-<strong>ステータス</strong>
-<% if @product.buy_capable == true %>
-販売中
-<% else %>
-売り切れ
-<% end %>
+	</p>
 
+	<%= link_to "商品の編集", edit_admins_product_path(@product) %> |
 
-</p>
-<%= link_to "商品の編集", edit_admins_product_path(@product) %>
-
-<%= link_to "商品の削除", admins_product_path(@product),
+	<%= link_to "商品の削除", admins_product_path(@product),
 		method: :delete, "data-confirm" => "本当に削除しますか？" %>
+</div>

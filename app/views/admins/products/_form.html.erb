@@ -1,64 +1,76 @@
 <%= form_for [:admins, @product] do |f| %>
-
+<div class="col-xs-12">
 	<h3> 商品情報</h3>
-
-	<div class="field">
-	  <%= f.label " CD/アルバム名" %>
-	  <%= f.text_field :cd_title %>
-	</div>
-
-	<div id="discs">
-
-	  <div id="product_discs">
-		<%= f.fields_for :product_discs do |disc| %>
-	 	 <%= render 'product_disc_fields', f: disc %>
-		<% end %>
-
-		<div id="links">
-	  	  <%= link_to_add_association 'ディスクを追加', f, :product_discs,data: {association_insertion_node: '#product_discs', association_insertion_method: 'append'} %>
-	  	</div>
-
-	  </div>
-	</div>
-
-	<div class="field">
-	  <%= f.label "アーティスト名" %>
-	  <%= f.text_field :artist_name %>
-	</div>
-
-	<div class="field">
-	  <%= f.label "レーベル名" %>
-	  <%= f.text_field :label_name %>
-	</div>
 
 	<div class="field">
 	  <%= f.label "ジャケット画像" %>
 	  <%= f.attachment_field :product_image %>
 	</div>
 
-	<div class="field">
-	  <%= f.label "価格" %>
-	  <%= f.number_field :price %>
+	<div class="col-xs-6">
+		<div class="field">
+		  <label> CD/アルバム名　</label>
+		  <%= f.text_field :cd_title %>
+		</div>
+
+		<div id="discs">
+
+		  <div id="product_discs">
+			<%= f.fields_for :product_discs do |disc| %>
+		 	 <%= render 'product_disc_fields', f: disc %>
+			<% end %>
+
+			<div id="links">
+		  	  <%= link_to_add_association 'ディスクを追加', f, :product_discs,data: {association_insertion_node: '#product_discs', association_insertion_method: 'append'} %>
+		  	</div>
+
+		  </div>
+		</div>
 	</div>
 
-	<div class="field">
-	  <%= f.label "在庫数" %>
-	  <%= f.number_field :stock %>
+	<div class="col-xs-6">
+		<div class="field">
+		  <%= f.label "アーティスト名　" %>
+		  <%= f.text_field :artist_name %>
+		</div>
+
+		<div class="field">
+		  <%= f.label "レーベル名　　　" %>
+		  <%= f.text_field :label_name %>
+		</div>
+
+
+		<div class="field">
+		  <%= f.label "価格　　　　　　" %>
+		  <%= f.number_field :price %>
+		</div>
+
+		<div class="field">
+		  <%= f.label "在庫数　　　　　" %>
+		  <%= f.number_field :stock %>
+		</div>
+		<% if action_name != 'new' %>
+		<div class="field">
+		  <%= f.label "ステータス　　　" %>
+		  <label><%= f.radio_button :buy_capable, true %> 販売中 </label>
+		  <label><%= f.radio_button :buy_capable, false %> 売り切れ</label>
+		</div>
+		<% end %>
+
+		<div class="field">
+		  <%= f.label "ジャンル　　　　" %>
+		  <%= f.collection_select :genre_id, @genres, :id,:genre_name %><br>
+		  <%= link_to "ジャンルを追加", new_admins_genre_path %>
+
+		</div>
+
 	</div>
-
-	<div class="field">
-	  <%= f.label "ステータス" %>
-	  <label><%= f.radio_button :buy_capable, true %> 販売中 </label>
-	  <label><%= f.radio_button :buy_capable, false %> 売り切れ</label>
-	</div>
-
-	<div class="field">
-	  <%= f.label "ジャンル" %>
-	  <%= f.collection_select :genre_id, @genres, :id,:genre_name %><br>
-	  <%= link_to "ジャンルを追加", new_admins_genre_path %>
-
-	</div>
-
-
-	    <%= f.submit %>
+</div>
+<div class="col-xs-10" style="text-align: right;">
+	<% if action_name != 'new' %>
+	<%= f.submit "商品を更新する"%>
+	<% else %>
+	<%= f.submit "商品を追加する"%>
+	<% end %>
+</div>
 <% end %>

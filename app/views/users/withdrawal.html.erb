@@ -1,0 +1,5 @@
+<h1> 本当に退会しますか？</h1>
+<p> 退会したアカウントではログインできません。</p>
+
+<%= link_to "退会する", user_path(current_user), method: :delete, 
+"data-confirm" => "本当に退会しますか？" %>
