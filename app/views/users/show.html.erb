@@ -1,7 +1,6 @@
 <div class="row content">
   <div class="col-sm-5 border">
 
-<<<<<<< HEAD
 <h1> マイページ</h1>
 <div>
  <label>性別 : <%= @user.gender_i18n %></label>
@@ -17,22 +16,6 @@
  </div>
  <%= link_to "編集" , edit_user_path(@user) %>
 </div>
-=======
-  <h1> マイページ</h1>
-  <div>
-   <label>性別 : <%= @user.gender_i18n %></label>
-  </div>
-  <div class="field">
-   <label>
-   名前 : <%= @user.last_name + @user.first_name %>
-   (<%= @user.last_name_kana + @user.first_name_kana %>)
-   </label><br>
-   <label>メールアドレス : <%= @user.email %></label><br>
-   <label>生年月日 : <%= @user.birthday %></label>
-   </div>
-   <%= link_to "編集" , edit_user_path(@user) %>
-  </div>
->>>>>>> fc5799bf1dbb4a4a54b18d7a5b9b6cd01613d31b
 
   <div class="col-sm-5">
 
